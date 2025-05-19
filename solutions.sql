@@ -1,12 +1,12 @@
 --1.Get the id values of the first 5 clients from district_id with a value equals to 1.
 SELECT client_id, district_id from client
-WHERE district_id == 1
+WHERE district_id = 1
 ORDER BY client_id ASC
 LIMIT 5;
 
 --2.In the client table, get an id value of the last client where the district_id equals to 72.
 SELECT client_id, district_id from client
-WHERE district_id == 72
+WHERE district_id = 72
 ORDER BY client_id DESC
 LIMIT 1;
 
@@ -32,7 +32,7 @@ LIMIT 5;
 
 --7. What are the account_ids with the lowest loan amount that have a loan duration of 60 in the loan table?
 SELECT account_id FROM loan
-WHERE duration == 60
+WHERE duration = 60
 ORDER BY amount ASC
 LIMIT 5;
 
@@ -42,7 +42,7 @@ GROUP BY k_symbol;
 
 --9. In the order table, what are the order_ids of the client with the account_id 34?
 SELECT order_id FROM `order`
-WHERE account_id == 34;
+WHERE account_id = 34;
 
 --10.In the order table, which account_ids were responsible for orders between order_id 29540 and order_id 29560 (inclusive)?
 SELECT account_id FROM `order`
@@ -51,11 +51,11 @@ GROUP BY account_id;
 
 --11.In the order table, what are the individual amounts that were sent to (account_to) id 30067122?
 SELECT amount FROM `order`
-WHERE account_to == 30067122;
+WHERE account_to = 30067122;
 
 --12.In the trans table, show the trans_id, date, type and amount of the 10 first transactions from account_id 793 in chronological order, from newest to oldest.
 SELECT trans_id, `date`, type, amount FROM trans
-WHERE account_id == 793
+WHERE account_id = 793
 ORDER BY `date` DESC
 LIMIT 10;
 
@@ -88,9 +88,6 @@ ORDER BY date, duration ASC;
 
 --18.In the trans table, for account_id 396, sum the amount of transactions for each type (VYDAJ = Outgoing, PRIJEM = Incoming). Your output should have the account_id, the type and the sum of amount, named as total_amount. Sort alphabetically by type.
 SELECT account_id, type, SUM(amount) AS total_amount FROM trans
-WHERE account_id == 396
+WHERE account_id = 396
 GROUP BY type 
 ORDER BY type ASC;
-
-
-
